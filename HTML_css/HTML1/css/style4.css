@@ -1,0 +1,17 @@
+/* 选中父类型下的第一个值为child */
+.child:first-child{
+    color:red;
+}
+
+/* 选中父类型下同种类型的第一个值为child */
+
+.child:nth-of-type(1){
+    background:blue;
+}
+
+.warp::before{
+    content: 'aaa';
+}
+.warp::after{
+    content: 'bbb';
+}

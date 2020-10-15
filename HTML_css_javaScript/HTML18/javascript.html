@@ -1,0 +1,25 @@
+<script>
+    var a = 1
+    var b = 2
+    var sum = a + b
+    console.log(sum)
+
+    var obj = {
+       
+        valueOf: function(){
+            return 100
+        }
+    }
+    console.log(obj + 'world')
+
+    var c = '100'
+    var d = '10'
+    console.log(obj * d)
+
+    function sum(n){
+        if(n === 1){
+            return 1
+        }
+        return n * sum(n - 1)
+    }
+</script>

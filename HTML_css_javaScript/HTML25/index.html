@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <title></title>
+        
+	</head>
+	
+	<body>
+       <ul class="nov"></ul>
+	
+    </body>
+    <script>
+        var nov = document.getElementsByClassName('nov');
+       
+        for(var i = 0; i < 5; i++){
+            var nowContent = docuemnt.createTextNode("hello"+i);
+            var lili = document.createElement("li");
+            lili.appendChild(nowContent);
+            nov.append(lili);
+        }
+
+    </script>
+</html>

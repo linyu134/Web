@@ -1,0 +1,24 @@
+body{
+    font-size:10px;
+    text-align:center;
+    text-align:left;
+    text-align:right;
+    text-align:justify;
+  }
+  
+  p{
+    background:pink;
+    
+  }
+  span{
+      height:50px;
+      width:100px;
+      background-color:red;
+      /* border-color:blue;
+      border-style:dashed;
+      border-width: 2px; */
+      border: 2px blue solid;
+      border-bottom: 2px green dotted;
+      margin:30px;
+      padding: 30px;
+    }

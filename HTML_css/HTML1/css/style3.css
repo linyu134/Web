@@ -1,0 +1,42 @@
+/* 同时匹配c1,或c2 */
+.c1,.c2{
+    color:red;
+}
+/* 后代选择器，匹配a所有的后代c2 */
+#a c2{
+    color:red;
+}
+
+/* 子元素选择器，匹配a元素的所有直接子元素 */
+#a>c1{
+    color:red;
+}
+/* 直接相邻选择器，匹配c1之后的相邻的同级元素c2 */
+c1+c2{
+    color:red;
+}
+/* 普通相邻选择器，匹配c1之后的同级元素c3 ，无论直接相邻与否*/
+.c1~c3{
+    color:red;
+}
+.c1.c2{
+    color:red;
+}
+
+input[type=password]{
+    color:red;
+}
+
+a{
+    color:red;
+}
+a:visited{
+    color:black;
+}
+a:hover{
+    color:blue;
+}
+
+a:active{
+    color:yellow;
+}

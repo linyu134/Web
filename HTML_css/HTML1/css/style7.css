@@ -1,0 +1,38 @@
+.card{
+    width: 200px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    margin: 0 auto;
+}
+.card>img{
+    width: 200px;
+}
+.card>h3{
+    padding: 0 px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card>h3>a{
+    text-decoration: none;
+}
+
+.box{
+    font-size: 2em;
+}
+.box p{
+    font-size: 2em;
+}
+.box h3{
+    font-size: 1rem;
+}
+.box a{
+    color: yellow;
+}
+.vw {
+    width: 50vw;
+    background-color: red;
+}
+ul{
+    list-style: none;
+}

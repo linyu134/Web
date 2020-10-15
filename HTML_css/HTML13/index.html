@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Game of Thrones</title>
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="http://at.alicdn.com/t/font_2103202_5uzkv5nynn.css">
+        <style>
+            html, body {
+              height: 100%;
+            }
+            header {
+                position: relative;
+              /* 全屏 */
+              height: 100%; 
+              min-height: 600px;
+              /* no-repeat表示不重复，center表示居中 */
+              background: #000 url(imgs/1.jpeg) center
+              center no-repeat;
+              background-size: cover;
+            }    
+            header .logo {
+              color: #f7ba3e;
+              font-size: 32px;
+              float: left;
+              margin-top: 10px;
+            }
+            header .nav {
+              float: right;
+            }
+            header .nav > li {
+              float: left;
+              margin: 10px;
+
+            }
+            header .nav  a {
+              display: inline-block;
+              padding: 5px;
+              border-radius: 4px;
+              color: #fff;
+              font-size: 16px;
+            }
+            header .nav a:hover {
+              background-color: #f7ba3e;
+            }
+            header .intro {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              color: #fff;
+              text-align: center;
+
+            }
+            header .intro h1 {
+                font-size: 32px;
+
+            }
+            header .intro h2 {
+                font-size: 46px;
+                margin-top: 20px;
+            }
+            header .intro .button {
+                margin-top: 20px;
+            }
+            section {
+                margin-top: 30px;
+              text-align: center;
+            }
+            section > h2 {
+                font-size: 40px;
+            }
+            section > p {
+                margin-top: 10px;
+            }
+            section >ul .iconfont {
+                font-size: 60px;
+            }
+            section .family-intro > li {
+                float: left;
+                width: 33.33%;
+                padding: 10px 20px;
+            }
+            section > ul  p {
+                margin-top: 10px;
+            }
+
+            section .family figure {
+                width: calc(33.33% - 20px);
+                height: 240px;
+                margin: 10px;
+                float: left;
+            }
+            section .family a {
+                display: block;
+                height: 180px;
+            }
+            section .family img {
+                width: 100%;
+                height: 100%;
+            }
+            section .family figcaption {
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 10px;
+            }
+            section .family p {
+                color: #666;
+                margin-top: 10px;
+
+                 
+            }
+            section .timeline > li{
+                position: relative;
+                margin-top: 40px;
+            }
+           
+
+            section .timeline > li::after {
+                content: '';
+                display: block;
+                clear: both;
+                
+            }
+            section .timeline img,
+            section .timeline .img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                border: 3px solid lightblue;
+                
+            }
+            section .timeline .img {
+                display: inline-block;
+                padding-top: 10px;
+                font-size: 12px;
+                text-align: center;
+            }
+            section .timeline > li:nth-child(odd) {
+                padding-right: calc(50% - 50px);
+                text-align: right;
+            }
+            section .timeline >li:nth-child(odd) dl {
+                margin-right: 120px;
+            }
+            section .timeline > li:nth-child(odd) img {
+                float: right;
+            }
+            section .timeline > li:nth-child(even) {
+                padding-left: calc(50% - 50px);
+                text-align: left;
+            }
+            section .timeline > li:nth-child(even) dl {
+                margin-left: 120px;
+            }
+            section .timeline > li:nth-child(even) img {
+                float: left;
+            }
+            section .timeline  dt {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            section .timeline dd:nth-of-type(1) {
+                color: #666;
+            }
+            section .timeline >li::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 100px;
+                margin-left: 0px;
+                display: inline-block;
+                height: 56px;
+                width: 4px;
+                background-color: lightblue;
+            }
+            section .timeline >li:last-child::before {
+                height: 0;
+            }
+        </style>
+
+	</head>
+	
+	<body>
+       <header>
+           <div class="navbar layout clearfix">
+               <a href="#" class="logo">Game of Thrones</a>
+                <ul class="nav">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Family</a></li>
+                    <li><a href="#">Character</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="intro layout">
+                <h1>WINTER IS COMMING.</h1>
+                <h2>ALONE WOLF DEATH,WOLVES LIVE.</h2>
+                <a class="button" href="">Tell me more</a>
+            </div>
+       </header>
+       <main class="layout">
+        <section>
+            <h2>家族介绍</h2>
+            <p>关于各个家族的介绍</p>
+            <ul class="family-intro clearfix">
+                <li>
+                    <span class="iconfont icon-family1"></span>
+                    <h3>史塔克家族</h3>
+                    <p>史塔克家族的起源可以追溯到“筑城者”布兰登和远古的冬境之王。
+                        数千年来，他们坐镇临冬城，以北境之王自居，直到“降服王”托伦·史塔克为避免战端，向龙王伊耿宣誓效忠为止。
+                    </p>
+                </li>
+                <li>
+                    <span class="iconfont icon-family2"></span>
+                    <h3>兰尼斯特家族</h3>
+                    <p>金发白肤，高大俊美，兰尼斯特家族人体内流着在西方山陵峡谷间建立起强大王国的安达尔冒险者的血液。
+                    </p>
+                </li>
+                <li>
+                    <span class="iconfont icon-family3"></span>
+                    <h3>拜拉席恩家族</h3>
+                    <p>拜拉席恩家族是王国数大家族中最年轻的一家，崛起于征服战争时期，相传第一代族长奥里斯·拜拉席恩本是龙王伊耿的私生兄弟，但他在战争中级级晋升，最后成为伊耿麾下最勇猛的将领之一。
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>FAMILY</h2>
+            <p>故事发生在一个虚幻的中世纪世界，
+                主要目光集中在西方的“日落王国”——维斯特洛大陆上
+            </p>
+            <div class="family">
+                <figure>
+                    <a href=""><img src="imgs/2.jpg" alt=""></a>
+                    <figcaption>Winterfell:House Starks</figcaption>
+                    <p>Winter is coming</p>
+                </figure>
+                <figure>
+                    <a href=""><img src="imgs/2.jpg" alt=""></a>
+                    <figcaption>Winterfell:House Starks</figcaption>
+                    <p>Winter is coming</p>
+                </figure>
+                <figure>
+                    <a href=""><img src="imgs/2.jpg" alt=""></a>
+                    <figcaption>Winterfell:House Starks</figcaption>
+                    <p>Winter is coming</p>
+                </figure>
+                <figure>
+                    <a href=""><img src="imgs/2.jpg" alt=""></a>
+                    <figcaption>Winterfell:House Starks</figcaption>
+                    <p>Winter is coming</p>
+                </figure>
+                <figure>
+                    <a href=""><img src="imgs/2.jpg" alt=""></a>
+                    <figcaption>Winterfell:House Starks</figcaption>
+                    <p>Winter is coming</p>
+                </figure>
+                <figure>
+                    <a href=""><img src="imgs/2.jpg" alt=""></a>
+                    <figcaption>Winterfell:House Starks</figcaption>
+                    <p>Winter is coming</p>
+                </figure>
+            </div>
+        </section>
+        <section>
+            <h2>Time</h2>
+            <p>故事的发展曲线</p>
+            <ul class="timeline">
+                <li>
+                    <img src="imgs/2.jpg" />
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones</dd>
+                        <dd>1212122</dd>
+                    </dl>
+                 </li>
+                 <li>
+                    <img src="imgs/2.jpg" />
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones</dd>
+                        <dd>1212122</dd>
+                    </dl>
+                 </li>
+                 <li>
+                    <img src="imgs/2.jpg" />
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones</dd>
+                        <dd>1212122</dd>
+                    </dl>
+                 </li>
+                 <li>
+                    <img src="imgs/2.jpg" />
+                    <dl>
+                        <dt>April 2011</dt>
+                        <dd>Game of Thrones</dd>
+                        <dd>1212122</dd>
+                    </dl>
+                 </li>
+                 <li>
+                    <span class="img">SaY teniefno eosf</span>
+                 </li>
+            </ul>
+        </section>
+       </main>
+       <footer></footer>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+ /* reset */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    /* 去掉下划线 */
+    text-decoration: none;  
+}
+
+ul {
+    /* 去掉列表的点 */
+    list-style: none;
+}
+
+/* common css */
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.button {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    background-color: #f7ba3e;
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+.button:hover {
+    opacity: 1;
+}
+.layout {
+    width: 1000px;
+    margin: 0 auto;
+}
+body {
+    /* 设置字体，大小为14px,行间距为1.5 字体样式为Arial */
+    font: 14px/1.5 Arial;
+    background-color: #eee;
+    color: #444;
+}
