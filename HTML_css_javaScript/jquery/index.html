@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+  <meta charset="utf-8">
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2020 by jirengu (http://js.jirengu.com/yakah/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+  <title>JS Bin</title>
+
+<style id="jsbin-css">
+*{
+  box-sizing: border-box;
+}
+.mod-tab {
+  margin-top: 30px;
+}
+.mod-tab .header{
+
+}
+.mod-tab .header:after{
+  content:'';
+  display: block;
+  clear: both;
+}
+
+.mod-tab .header .tab{
+  float: left;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  background: #ddd;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+.mod-tab .header .tab.active {
+  background: #fff;
+}
+.mod-tab .header .tab:last-child{
+  border-right: 1px solid #ccc;
+}
+
+.mod-tab .content {
+  border: 1px solid #ccc;
+  width: 300px;
+  height: 200px;
+  background: #fff;
+}
+.mod-tab .panel{
+
+  padding: 30px;
+  background: #fff;
+  display: none;
+}
+.mod-tab .panel.active{
+  display: block;
+}
+</style>
+</head>
+<body>
+  <div class="mod-tab">
+    <div class="header">
+      <div class="tab ">1</div>
+      <div class="tab active">2</div>
+      <div class="tab">3</div>
+      <div class="tab">4</div>
+    </div>
+    <div class="content">
+      <div class="panel ">panel1</div>
+      <div class="panel active">panel2</div>
+      <div class="panel">panel3</div>
+      <div class="panel">panel4</div>
+    </div>
+  </div>
+  
+  <div class="mod-tab">
+    <div class="header">
+      <div class="tab ">1</div>
+      <div class="tab">2</div>
+      <div class="tab">3</div>
+      <div class="tab active">4</div>
+    </div>
+    <div class="content">
+      <div class="panel ">panel1</div>
+      <div class="panel">panel2</div>
+      <div class="panel">panel3</div>
+      <div class="panel active">panel4</div>
+    </div>
+  </div>
+<script>
+$('.mod-tab .tab').on('click', function(){
+  $(this).addClass('active')
+         .siblings()
+         .removeClass('active')
+ 
+  $(this).parents('.mod-tab')
+         .find('.panel')
+         .eq($(this).index())
+         .addClass('active')
+         .siblings()
+         .removeClass('active')
+})
+</script>
+
+<script src="http://js.jirengu.com/js/render/edit.js?3.25.5"></script>
+<script>jsbinShowEdit && jsbinShowEdit({"static":"http://js.jirengu.com","root":"http://js.jirengu.com"});</script>
+</body>
+</html>

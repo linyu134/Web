@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>music</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 字体图标链接 -->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1307914_nzgww08uhef.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- 当前的主页面 -->
+    <section id="page-music">
+        <!-- 主界面 -->
+        <main class="layout">
+           <div class="aside"> 
+               <!-- 存放图片 -->
+                <figure></figure>
+
+                <!-- 喜欢，播放，下一曲 -->
+                <div class="actions">
+                    <span class="iconfont icon-heart"></span>
+                    <span class="iconfont icon-play"></span>
+                    <span class="iconfont icon-next"></span>
+                </div>
+           </div>
+
+           <!-- 右半部分 -->
+           <div class="detail">
+                <span class="tag">90后</span>
+                <h1>It's a new day</h1>
+
+                <!-- 三个图片 -->
+                <ul class="icons">
+                    <li><span class="iconfont icon-headphone"></span>3333</li>
+                    <li><span class="iconfont icon-heart"></span>128</li>
+                    <li><span class="iconfont icon-like"></span>20</li>
+                </ul>
+                
+                <div class="area-bar">
+                    <!-- 进度条 -->
+                    <div class="bar">
+                        <!-- 播放条 -->
+                        <div class="bar-progress"></div>
+                    </div>
+                    <div class="current-time">1.02</div>
+                </div>
+                <div class="author">周杰伦</div>
+                <div class="lyric">
+                    <p>hello world</p>
+                </div>
+
+           </div>
+        </main>
+
+        <!-- 下半部分 -->
+        <footer>
+            <!-- layout设置固定的宽度 -->
+            <div class="box layout">
+                <!-- 左箭头和右箭头 -->
+                <span class="iconfont icon-back"></span>
+                <span class="iconfont icon-forward"></span>
+                <ul>
+                    <li>
+                        <div class="cover" style="background-image: 
+                        url(https://ftp.bmp.ovh/imgs/2020/10/bb57e5c78faf469a.jpg);"></div>
+                        <h3></h3>
+                    </li>
+                    <li>
+                        <div class="cover" style="background-image: 
+                        url(https://ftp.bmp.ovh/imgs/2020/10/bb57e5c78faf469a.jpg);"></div>
+                        <h3></h3>
+                    </li>
+                    <li>
+                        <div class="cover" style="background-image: 
+                        url(https://ftp.bmp.ovh/imgs/2020/10/bb57e5c78faf469a.jpg);"></div>
+                        <h3></h3>
+                    </li>
+                    <li>
+                        <div class="cover" style="background-image: 
+                        url(https://ftp.bmp.ovh/imgs/2020/10/bb57e5c78faf469a.jpg);"></div>
+                        <h3></h3>
+                    </li>
+                </ul>
+            </div>
+
+        </footer>
+    </section>
+    <!-- 鼠标长时间不动时，跳出来的页面 -->
+    <section id="page-cover">
+
+    </section>
+    <!-- 背景模糊的效果 -->
+    <div class="bg"></div>
+    <script src="js/index.js"></script>
+</body>
+</html>
