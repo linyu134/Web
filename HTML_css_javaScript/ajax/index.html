@@ -3,8 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>登录|注册</title>
- 
+  var source = {
+    a: {
+        b: {
+            c: 1,
+        },
+       d: 2,
+    },
+    e: 3,
+};
+function flat(data, list, keyName) {
+  for (let key in data) {
+    if (keyName) {
+      var str = keyName + '.' + key
+    } else {
+      var str = key;
+    }
+    if (typeof data[key] === 'object' && isNaN(data[key].length)) {
+      this.flat(data[key], list, str)
+    } else {
+      list.push({
+        name: str,
+        value: data[key]
+      })
+    }
+  }
+  return list
+}
 
+(page,total)=> page,total
+
+var mydata1 = getObjectData(source,[]);
+console.log(mydata1);
 </head>
 <body>
   <script>
@@ -38,5 +68,56 @@
     // }
   </script>
  
+    
+ class localStorageMock {
+  constructor() {
+    this.store = {};
+  };
+  getItem(key) {
+    return this.store[key] || null;
+  };
+  setItem(key, value) {
+    this.store[key] = value.toString();
+  };
+  removeItem(key) {
+    delete this.store[key];
+  };
+  clear() {
+    this.store = {};
+  };
+};
+window.localStorage2 = new localStorageMock();
+
+localStorage2.setItem('a', 1);
+localStorage2.getItem('a');
+console.log(localStorage2.getItem('a'));
+
+
+  
+function general(c, sign1, sign2){
+      const a = 1
+      const b = 2
+  
+      console.log(a+sign1+b+sign2+c)
+      const d = eval(a+sign1+b+sign2+c)
+      return a+b+c+d
+  }
+  
+  console.log(general(1,'*','*'))
+
+  const Weight = function(stones) {
+    stones.sort((a,b) => b - a);
+    while(stones.length > 1){
+        if(stones[0] === stones[1]){
+            stones.splice(0 , 2);
+        }else{
+            stones.push(Math.abs(stones[0] - stones[1]));
+            stones.splice(0 , 2);
+            stones.sort((a,b) => b - a);
+        }
+    }
+    return stones[0] === undefined ? 0 : stones[0];
+};
+
 </body>
 </html>

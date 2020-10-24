@@ -1,3 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2020 by anonymous (http://js.jirengu.com/goboxazuya/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Moe Music</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1307914_k45hxkkw9v.css">
+    <script src="./js/jquery.js"></script>
+
+<style id="jsbin-css">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 cursive;
+}
+
+html,
+body,
+section {
+    height: 100%;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #444;
+}
+#page-cover {
+    display: none;
+}
+
+main {
+    display: flex;
+    padding-top: 12vh;
+    height: calc(100% - 24vh);
+}
+
+.bg {
+    position: absolute;
+    background: url(https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=3c71bc94532c11dfded1b8255b1c05ed/bd3eb13533fa828bf8b6e694f91f4134970a5a2b.jpg) center center no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    z-index: -1;
+}
+
+.bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+
+.layout {
+    margin: 0 auto;
+    width: 600px;
+}
+
+@media (min-width:700px) {
+    .layout {
+        width: 600px;
+    }
+}
+
+@media (min-width:800px) {
+    .layout {
+        width: 700px;
+    }
+}
+
+@media (min-width:900px) {
+    .layout {
+        width: 800px;
+    }
+}
+
+@media (min-width:1000px) {
+    .layout {
+        width: 900px;
+    }
+}
+
+.layout .aside figure {
+    width: 46vh;
+    height: 46vh;
+    background: center center no-repeat;
+    background-size: cover;
+}
+
+.layout .aside .action {
+    margin-top: 4vh;
+    display: flex;
+}
+
+.layout .aside .action .iconfont {
+    flex: 1;
+    font-size: 4vh;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    text-align: center;
+    transition: color .8s;
+}
+
+.layout .aside .action .iconfont:hover {
+    color: #ffffff;
+}
+
+.layout .detail {
+    flex: 1;
+    margin-left: 10vh;
+}
+
+.layout .detail .tag {
+    font-size: 2vh;
+    background: #2e6eec;
+    color: #ffffff;
+    padding: .4em .8em;
+}
+
+.layout .detail h1 {
+    font-size: 6vh;
+    color: #ffffff;
+}
+
+.layout .detail .icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10vh;
+}
+
+.layout .detail .icons li {
+    color: #ffffff;
+    font-size: 2vh;
+    flex: 1;
+}
+
+.layout .detail .progress {
+    display: flex;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+.layout .detail .progress .progress-bar {
+    position: relative;
+    flex: 1;
+    height: .8vh;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: .2vh;
+    cursor: pointer;
+}
+
+.layout .detail .progress .progress-bar .current-bar {
+    position: absolute;
+    top: o;
+    left: 0;
+    height: .8vh;
+    width: 10%;
+    background: #ffffff;
+    border-radius: .2vh;
+    transition: width .8s;
+}
+
+.layout .detail .progress .current-time {
+    color: #ffffff;
+    margin-left: 1vh;
+}
+
+.layout .detail .author {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 2vh;
+    margin-top: 2vh;
+}
+
+.layout .detail .lyric {
+    color: #ffffff;
+    font-size: 3vh;
+    margin-top: 3vh;
+}
+
+footer {
+    height: 24vh;
+    padding-top: 2vh;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+footer .layout {
+    position: relative;
+}
+
+footer .layout .iconfont {
+    font-size: 10vh;
+    color: rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    cursor: pointer;
+    transition: all .8s;
+}
+
+footer:hover .layout .iconfont {
+    opacity: 1;
+}
+
+footer .layout .iconfont:hover {
+    color: #ffffff;
+}
+
+footer .layout .icon-back {
+    position: absolute;
+    left: -10vh;
+}
+
+footer .layout .icon-forward {
+    position: absolute;
+    right: -10vh;
+}
+
+footer .layout .box {
+    position: relative;
+    height: 24vh;
+    overflow: hidden;
+}
+
+footer .layout .box ul {
+    position: absolute;
+    left: 0;
+    width: 2000px;
+}
+
+footer .layout .box ul::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+footer .layout .box ul li {
+    float: left;
+    margin: 2vh;
+    margin-top: 1vh;
+    width: 20vh;
+    height: 20vh;
+    text-align: center;
+    cursor: pointer;
+}
+
+footer .layout .box ul li:hover {
+    box-shadow: 0 0 0.5vh 0.5vh rgba(255, 255, 255, 0.8);
+}
+
+footer .layout .box ul li.active {
+    box-shadow: 0 0 0.5vh 0.5vh rgba(255, 255, 255, 0.8);
+}
+
+footer .layout .box ul li .cover {
+    height: 15vh;
+    background: center center no-repeat;
+    background-size: cover;
+}
+
+footer .layout .box ul li h3 {
+    font-size: 3vh;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.boomText {
+    display: inline-block;
+    opacity: 0;
+}
+</style>
+</head>
+
+<body>
+    <section id="page-music">
+        <main class="layout">
+            <div class="aside">
+                <figure
+                    style="background-image: url(
+                    https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=3c71bc94532c11dfded1b8255b1c05ed/bd3eb13533fa828bf8b6e694f91f4134970a5a2b.jpg);">
+                </figure>
+                <div class="action">
+                    <span class="btn-heart iconfont icon-heart"></span>
+                    <span class="btn-play iconfont icon-play"></span>
+                    <span class="btn-next iconfont icon-next"></span>
+                </div>
+            </div>
+            <div class="detail">
+                <span class="tag">
+                    怀旧金曲
+                </span>
+                <h1>和自己赛跑的人</h1>
+                <ul class="icons">
+                    <li><span class="iconfont icon-headphone"></span> 3333</li>
+                    <li><span class="iconfont icon-heart"></span> 128</li>
+                    <li><span class="iconfont icon-like"></span> 20</li>
+                </ul>
+                <div class="progress">
+                    <div class="progress-bar">
+                        <div class="current-bar"></div>
+                    </div>
+                    <div class="current-time">0:23</div>
+                </div>
+                <div class="author">李宗盛</div>
+                <div class="lyric">
+                    <p>和自己赛跑的人</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="layout">
+                <span class="iconfont icon-back"></span>
+                <span class="iconfont icon-forward"></span>
+                <div class="box">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <section id="page-cover"></section>
+    <div class="bg"></div>
+    <script src="./js/index.js"></script>
+<script>
 // 事件中心，监听全局事件
 const EventListener = {
     on: function (type, handler) {
@@ -8,11 +360,14 @@ const EventListener = {
     }
 }
 
+// EventListener.on('hello', function (e, data) {
+//     console.log(e, data)
+// })
+
+// EventListener.fire('hello', 'ssss')
 
 let Footer = {
-    //初始化
     init: function () {
-        //获取当前footer
         this.$footer = $('footer')
         this.$box = $('footer .box')
         this.$ul = $('footer ul')
@@ -24,11 +379,8 @@ let Footer = {
         this.render()
         this.bind()
     },
-    //绑定事件
     bind: function () {
         let _this = this
-        //箭头减去一个box除以li进行切换
-        //left大于容器的宽度就会完成不切屏
         this.$forwardBtn.on('click', function () {
             if (_this.isAnimate) {
                 return
@@ -47,24 +399,20 @@ let Footer = {
                 .removeClass('active')
             EventListener.fire('select-chanel', {
                 channel_id: $(this).attr('data-channel-id'),
-                //标签的name
                 channel_name: $(this).attr('data-channel-name')
             })
         })
     },
-    //渲染当前页面
     render: function () {
         let _this = this
-        //json,调用接口,获取json数据
-        $.getJSON('http://api.jirengu.com/fm/getChannels.php')
+        $.getJSON('//jirenguapi.applinzi.com/fm/getChannels.php')
             .done(function (res) {
                 _this.renderFooter(res.channels)
             })
     },
-    //渲染数据
     renderFooter: function (data) {
         let _this = this
-        //生成对应的html，放到url里面
+        // console.log(data)
         data.forEach(function (item) {
             let $item = $(`<li data-channel-id="${item.channel_id}" data-channel-name="${item.name}">
                             <div class="cover"
@@ -73,7 +421,6 @@ let Footer = {
                             </div>
                             <h3>怀旧金曲</h3>
                         </li>`)
-                //找到ul，放进去html       
             $item.find('h3').text(item.name)
             $item.find('.cover').css({
                 backgroundImage: `url(${item.cover_small})`
@@ -82,7 +429,6 @@ let Footer = {
         })
         this.setStyle()
     },
-    //设置底部图片的样式,给ul设置css样式,找到图片的宽度乘以个数，漏出箭头的地方隐藏掉，用overflow：hidden
     setStyle: function () {
         let itemWidth = this.$ul.find('li').outerWidth(true)
         let count = this.$ul.find('li').length
@@ -97,7 +443,6 @@ let Footer = {
         this.isToEnd = false
         let itemWidth = _this.$ul.find('li').outerWidth(true)
         let itemCount = Math.floor(_this.$box.width() / itemWidth)
-        //变成数字
         let ulLeft = parseFloat(_this.$ul.css('left'))
         console.log(itemCount, itemWidth, ulLeft)
         if ((ulLeft + itemCount * itemWidth) > -10) {
@@ -162,23 +507,18 @@ let Fm = {
             _this.channel_name = data.channel_name
             _this.loadMusic()
         })
-        //播放按钮事件
         this.$container.find('.btn-play').on('click', function () {
-            //如果有播放的class，改成暂停状态  用hasClass
             if ($(this).hasClass('icon-play')) {
                 $(this).removeClass('icon-play').addClass('icon-pause')
-                //播放
                 _this.audio.play()
             } else {
                 $(this).removeClass('icon-pause').addClass('icon-play')
                 _this.audio.pause()
             }
         })
-        //下一曲，获取localMUsic，setmusic
         this.$container.find('.btn-next').on('click', function () {
             _this.loadMusic()
         })
-        //绑定事件
         this.$container.find('.progress-bar').on('click', function (e) {
             let currentX = e.offsetX
             let width = parseFloat($(this).css('width'))
@@ -187,7 +527,6 @@ let Fm = {
             $(this).find('.current-bar').css('width', percent + '%')
             _this.audio.currentTime = _this.audio.duration * percent / 100
         })
-        //如果在播放
         this.audio.addEventListener('play', function () {
             if (_this.statusInterval) {
                 clearInterval(_this.statusInterval)
@@ -196,7 +535,6 @@ let Fm = {
                 _this.updateStatus()
             }, 500)
         })
-        //如果在暂停
         this.audio.addEventListener('pause', function () {
             if (_this.statusInterval) {
                 clearInterval(_this.statusInterval)
@@ -209,7 +547,6 @@ let Fm = {
     },
     loadMusic() {
         let _this = this
-        //获得歌曲对象，根据id
         $.getJSON('//api.jirengu.com/fm/getSong.php', {
             channel: _this.channel_id
         }).done(function (res) {
@@ -222,25 +559,15 @@ let Fm = {
             console.log('song fail...')
         })
     },
-    //设置数据 ，给音乐一个对象，audio audio.play=true 音乐播放src等于song的url
     setMusic() {
-        //给音乐一个对象，audio audio.play=true 音乐播放src等于song的url
         this.audio.src = this.song.url
-        //标签
         this.$container.find('.tag').text(this.channel_name)
-        //标题
         this.$container.find('.detail h1').text(this.song.title)
-        //作者
         this.$container.find('.author').text(this.song.artist)
-        //上面的图片更改
         this.$container.find('figure').css('background-image', `url(${this.song.picture})`)
-        //背景图片改成song的背景图片
         $('.bg').css('background-image', `url(${this.song.picture})`)
-        //重置按钮的状态
         this.$container.find('.btn-play').removeClass('icon-play').addClass('icon-pause')
     },
-    //歌词,当前时间和对应的字符串对应，对歌词进行切分 字符串切成key——value
-    //key就是当前的时间 ,匹配秒的时间
     loadLyric() {
         let _this = this
         $.getJSON('//api.jirengu.com/fm/getLyric.php', {
@@ -258,15 +585,12 @@ let Fm = {
         })
     },
     setLyricObj() {
-        //切分,把字符串解析成一个对象，对象的key就是时间
         let lyric = this.lyric.split('\n')
         let lyricObj = {}
         lyric.forEach(function (line) {
             // [01:22][02:22]
             // console.log(line)
-            //match取出数组时间
             let times = line.match(/\d{2}:\d{2}/g)
-            //repalce去掉中括号里面的东西
             let str = line.replace(/\[.+?\]/g, '')
             // console.log(str)
             if (Array.isArray(times)) {
@@ -276,27 +600,23 @@ let Fm = {
         })
         this.lyricObj = lyricObj
     },
-    //更新播放的状态
     updateStatus() {
         let min = Math.floor(this.audio.currentTime / 60)
         let seconds = Math.floor(this.audio.currentTime % 60)
         seconds = seconds.toString().length === 2 ? seconds.toString() : '0' + seconds.toString()
         let timeStr = min + ':' + seconds
         // console.log(timeStr)
-        //时间
         this.$container.find('.current-time').text(timeStr)
-        //时间条宽度，currentTime是当前时间，duration时间总长度
-        //用transition： width .8s 进行渐变
+
         let percent = Math.floor((this.audio.currentTime / this.audio.duration) * 100)
         this.$container.find('.current-bar').css({
             width: percent + '%'
         })
 
-        //显示歌词
+
         let lyric = this.lyricObj['0' + timeStr] || 'undefined'
         if (lyric !== 'undefined') {
             console.log(this.lyricObj['0' + timeStr])
-            //插入boomText插件
             this.$container.find('.lyric').text(lyric).boomText()
         }
     }
@@ -313,8 +633,6 @@ const App = {
 
 App.init()
 
-
-//炫酷插件，把每一个字进行拆分，用span标签，然后返回一个数组，用join('')变成字符串
 $.fn.boomText = function (type = 'rotateInDownLeft') {
     $(this).html(function () {
         let arr = $(this).text().split('').map(function (e) {
@@ -324,13 +642,17 @@ $.fn.boomText = function (type = 'rotateInDownLeft') {
     })
     let index = 0
     let $boomText = $(this).find('span')
-    //每过300毫秒加一个class  如果大于字的大小就停掉
     let clock = setInterval(function () {
         $boomText.eq(index).addClass('animated ' + type)
         index++
         if (index > $boomText.length) {
-            //clearInterval停止执行
             clearInterval(clock)
         }
     }, 300)
 }
+</script>
+<script src="http://js.jirengu.com/js/render/edit.js?3.25.5"></script>
+<script>jsbinShowEdit && jsbinShowEdit({"static":"http://js.jirengu.com","root":"http://js.jirengu.com"});</script>
+</body>
+
+</html>

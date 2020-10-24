@@ -82,7 +82,9 @@ let Footer = {
         })
         this.setStyle()
     },
-    //设置底部图片的样式,给ul设置css样式,找到图片的宽度乘以个数，漏出箭头的地方隐藏掉，用overflow：hidden
+
+
+    //功能：切屏
     setStyle: function () {
         let itemWidth = this.$ul.find('li').outerWidth(true)
         let count = this.$ul.find('li').length
@@ -114,6 +116,7 @@ let Footer = {
             console.log('sss')
             _this.isAnimate = true
             _this.$ul.animate({
+
                 left: '+=' + itemCount * itemWidth
             }, 400, function () {
                 _this.isAnimate = false
@@ -137,6 +140,7 @@ let Footer = {
         if (!_this.isToEnd) {
             _this.isAnimate = true
             _this.$ul.animate({
+                //向左移动图片乘以个数的距离
                 left: '-=' + itemCount * itemWidth
 
             }, 400, function () {
@@ -162,19 +166,18 @@ let Fm = {
             _this.channel_name = data.channel_name
             _this.loadMusic()
         })
-        //播放按钮事件
+        
+        //功能：播放
         this.$container.find('.btn-play').on('click', function () {
-            //如果有播放的class，改成暂停状态  用hasClass
             if ($(this).hasClass('icon-play')) {
                 $(this).removeClass('icon-play').addClass('icon-pause')
-                //播放
                 _this.audio.play()
             } else {
                 $(this).removeClass('icon-pause').addClass('icon-play')
                 _this.audio.pause()
             }
         })
-        //下一曲，获取localMUsic，setmusic
+        //下一曲
         this.$container.find('.btn-next').on('click', function () {
             _this.loadMusic()
         })
@@ -222,25 +225,17 @@ let Fm = {
             console.log('song fail...')
         })
     },
-    //设置数据 ，给音乐一个对象，audio audio.play=true 音乐播放src等于song的url
+    //功能：替换
     setMusic() {
-        //给音乐一个对象，audio audio.play=true 音乐播放src等于song的url
         this.audio.src = this.song.url
-        //标签
         this.$container.find('.tag').text(this.channel_name)
-        //标题
         this.$container.find('.detail h1').text(this.song.title)
-        //作者
         this.$container.find('.author').text(this.song.artist)
-        //上面的图片更改
         this.$container.find('figure').css('background-image', `url(${this.song.picture})`)
-        //背景图片改成song的背景图片
         $('.bg').css('background-image', `url(${this.song.picture})`)
-        //重置按钮的状态
         this.$container.find('.btn-play').removeClass('icon-play').addClass('icon-pause')
     },
-    //歌词,当前时间和对应的字符串对应，对歌词进行切分 字符串切成key——value
-    //key就是当前的时间 ,匹配秒的时间
+    //歌词
     loadLyric() {
         let _this = this
         $.getJSON('//api.jirengu.com/fm/getLyric.php', {
@@ -257,36 +252,31 @@ let Fm = {
             }
         })
     },
+    //功能：切分歌词
     setLyricObj() {
-        //切分,把字符串解析成一个对象，对象的key就是时间
+        
         let lyric = this.lyric.split('\n')
         let lyricObj = {}
         lyric.forEach(function (line) {
-            // [01:22][02:22]
-            // console.log(line)
-            //match取出数组时间
+            // [01:22]xxxxx
             let times = line.match(/\d{2}:\d{2}/g)
-            //repalce去掉中括号里面的东西
             let str = line.replace(/\[.+?\]/g, '')
-            // console.log(str)
             if (Array.isArray(times)) {
                 lyricObj[times] = str
             }
-            // console.log(times)
         })
         this.lyricObj = lyricObj
     },
-    //更新播放的状态
+
+
+
+    //功能：更新播放的状态
     updateStatus() {
         let min = Math.floor(this.audio.currentTime / 60)
         let seconds = Math.floor(this.audio.currentTime % 60)
         seconds = seconds.toString().length === 2 ? seconds.toString() : '0' + seconds.toString()
         let timeStr = min + ':' + seconds
-        // console.log(timeStr)
-        //时间
         this.$container.find('.current-time').text(timeStr)
-        //时间条宽度，currentTime是当前时间，duration时间总长度
-        //用transition： width .8s 进行渐变
         let percent = Math.floor((this.audio.currentTime / this.audio.duration) * 100)
         this.$container.find('.current-bar').css({
             width: percent + '%'
@@ -296,7 +286,6 @@ let Fm = {
         let lyric = this.lyricObj['0' + timeStr] || 'undefined'
         if (lyric !== 'undefined') {
             console.log(this.lyricObj['0' + timeStr])
-            //插入boomText插件
             this.$container.find('.lyric').text(lyric).boomText()
         }
     }
@@ -314,7 +303,7 @@ const App = {
 App.init()
 
 
-//炫酷插件，把每一个字进行拆分，用span标签，然后返回一个数组，用join('')变成字符串
+//炫酷插件
 $.fn.boomText = function (type = 'rotateInDownLeft') {
     $(this).html(function () {
         let arr = $(this).text().split('').map(function (e) {
